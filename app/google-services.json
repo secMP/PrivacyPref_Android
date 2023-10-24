@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274059789274",
+    "project_id": "privacyprefpushnotify",
+    "storage_bucket": "privacyprefpushnotify.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274059789274:android:6ef95b3ee684f6f36076e3",
+        "android_client_info": {
+          "package_name": "com.example.privacypref_android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc6lrbsJ52qW27hAiwMCWRoFX9Wype_V4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
