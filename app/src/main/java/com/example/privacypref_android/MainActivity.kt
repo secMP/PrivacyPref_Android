@@ -60,10 +60,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        FirebaseApp.initializeApp(this)
-//        if(Build.VERSION.SDK_INT > 32){
             askNotificationPermission()
-//        }
         setContent {
             PrivacyPref_AndroidTheme {
                 // A surface container using the 'background' color from the theme

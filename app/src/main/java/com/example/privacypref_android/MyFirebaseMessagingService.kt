@@ -1,11 +1,12 @@
 package com.example.privacypref_android
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -13,24 +14,27 @@ import com.google.firebase.messaging.RemoteMessage
 
 const val channelId = "privacyNotificationChannel"
 const val channelName = "privacyNotification"
+@SuppressLint("MissingFirebaseInstanceTokenRefresh")
 class MyFirebaseMessagingService : FirebaseMessagingService() {
+
 
     // Show Notification
     override fun onMessageReceived(message: RemoteMessage) {
+        Log.d("NotificationTitle", ""+ message.notification!!.title)
         if(message.notification != null){
              generateNotification(message.notification!!.title!!, message.notification!!.body!!)
         }
     }
 
     // Create Notification
-    fun getRmoteView(title: String, description: String): RemoteViews{
+    private fun getRmoteView(title: String, description: String): RemoteViews{
         val remoteView = RemoteViews("com.example.privacypref_android", R.layout.notificationlayout)
         remoteView.setTextViewText(R.id.titleNotify, title)
         remoteView.setTextViewText(R.id.descriptionNotify, description)
         remoteView.setImageViewResource(R.id.appLogo, R.drawable.notifyicon)
         return remoteView
     }
-    fun generateNotification(title: String, description: String){
+    private fun generateNotification(title: String, description: String){
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 
